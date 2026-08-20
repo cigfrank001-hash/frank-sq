@@ -16,6 +16,7 @@
 
 | 日期 | 操作 | 结果 |
 |------|------|------|
+| 2026-08-20 | 首次 push 上线 — deploy key（frank-sq-claude，写权限）由 Frank 添加，`git push -u origin main` 成功，main 上线（HEAD `34a8e8b`） | ✅ 已上线 |
 | 2026-08-20 | 初始化开源仓骨架（README / LICENSE(MIT) / .gitignore / CLAUDE.md / project.md / SQ-INDEX.md + projects/_template 样板 + 独立 SSH key） | ✅ |
 
 ## 故障记录
