@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Lint + Integration + Concurrency (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [18, 20, 22]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Syntax check
+        run: |
+          node --check proxy.js
+          node --check mock-anthropic.js
+          node --check test-integration.js
+          node --check test-concurrency.js
+
+      - name: Run integration tests
+        run: node test-integration.js
+
+      - name: Run concurrency tests
+        run: node test-concurrency.js
+        env:
+          # CI typically has lower parallelism; the test still passes with one request,
+          # but we set a reasonable timeout.
+          CI: 'true'

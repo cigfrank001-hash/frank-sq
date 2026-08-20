@@ -1,0 +1,27 @@
+{
+  "name": "openai-to-anthropic-proxy",
+  "version": "1.1.2",
+  "description": "Local OpenAI↔Anthropic protocol bridge for WorkBuddy + MiniMax Coding Plan",
+  "main": "proxy.js",
+  "bin": {
+    "openai-to-anthropic-proxy": "proxy.js"
+  },
+  "scripts": {
+    "start": "node proxy.js",
+    "dev": "node proxy.js --log debug",
+    "test": "node test-integration.js"
+  },
+  "keywords": [
+    "openai",
+    "anthropic",
+    "workbuddy",
+    "minimax",
+    "coding-plan",
+    "protocol-proxy"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
