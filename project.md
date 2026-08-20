@@ -8,7 +8,7 @@
 |------|------|
 | 名称 | frank-sq |
 | 定位 | 对外开源项目 / 插件共享仓 |
-| 仓库 | `git@github.com-frank-sq:cigfrank001-hash/frank-sq.git` |
+| 仓库 | `https://github.com/cigfrank001-hash/frank-sq.git` |
 | 协议 | MIT |
 | 结构 | `projects/<子项目>/` 一项目一文件夹 |
 
@@ -16,10 +16,8 @@
 
 | 日期 | 操作 | 结果 |
 |------|------|------|
-| 2026-08-20 | 攻略分发 — 飞书文章开源地址更正为本仓 GitHub 子项目地址 + 攻略发布到个人站点「齿轮匣子」AI 笔记（脱敏版教程页，指向本仓） | ✅ |
-| 2026-08-20 | 首个子项目入仓 — `openai-to-anthropic-proxy`（WorkBuddy↔MiniMax 协议转换代理 v1.1.2）脱敏开源：排除内部部署说明文档 + screenshots，修正 README 内部路径 2 处 + CONTRIBUTING 过时说明，MIT 协议 | ✅ |
-| 2026-08-20 | 首次 push 上线 — deploy key（frank-sq-claude，写权限）由 Frank 添加，`git push -u origin main` 成功，main 上线（HEAD `34a8e8b`） | ✅ 已上线 |
-| 2026-08-20 | 初始化开源仓骨架（README / LICENSE(MIT) / .gitignore / CLAUDE.md / project.md / SQ-INDEX.md + projects/_template 样板 + 独立 SSH key） | ✅ |
+| 2026-08-20 | 首个子项目开源发布 — `openai-to-anthropic-proxy`（WorkBuddy↔MiniMax 协议转换代理 v1.1.2），MIT 协议 | ✅ |
+| 2026-08-20 | 初始化仓库骨架（README / LICENSE(MIT) / .gitignore / CLAUDE.md / SQ-INDEX.md + projects/_template 样板） | ✅ |
 
 ## 故障记录
 
