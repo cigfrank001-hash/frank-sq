@@ -16,6 +16,7 @@
 
 | 日期 | 操作 | 结果 |
 |------|------|------|
+| 2026-08-21 | 子项目 openai-to-anthropic-proxy 同步 section 10 双仓结构 + CHANGELOG 到 v1.1.3（补齐智能体最新 commit `21f26f2` 的文档，README 302→339 行 + CHANGELOG 64→67 行；脱敏 grep `sk-cp-T7LqLNm` 真实 Key 片段零命中） | ✅ |
 | 2026-08-21 | 子项目 openai-to-anthropic-proxy 同步 v1.1.3：start.bat 重构（中文输出委托 PowerShell）+ 版本号 1.1.3 | ✅ |
 | 2026-08-20 | 首个子项目开源发布 — `openai-to-anthropic-proxy`（WorkBuddy↔MiniMax 协议转换代理 v1.1.2），MIT 协议 | ✅ |
 | 2026-08-20 | 初始化仓库骨架（README / LICENSE(MIT) / .gitignore / CLAUDE.md / SQ-INDEX.md + projects/_template 样板） | ✅ |
