@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.3] - 2026-08-21
+
+### Changed
+- **`start.bat` rewritten to delegate all Chinese output to PowerShell**: cmd.exe's parser can mis-tokenize Chinese text containing brackets/parentheses (e.g. `（`, `）`, `：`), producing garbled or truncated console output. The launcher now prints ASCII-only text from cmd itself and routes every Chinese message (port-conflict hint, exit-code reference, debug guidance) through `powershell -NoProfile -Command`, so `cmd /c start.bat` renders correctly regardless of the active code page.
+- Added `cd /d "%~dp0"` at the top so `proxy.js` resolves correctly even when the launcher is invoked from a different working directory.
+
 ## [1.1.2] - 2026-08-18
 
 ### Added

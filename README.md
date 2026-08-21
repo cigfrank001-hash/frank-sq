@@ -7,7 +7,7 @@
 
 | 子项目 | 说明 | 协议 | 状态 |
 |--------|------|------|------|
-| [openai-to-anthropic-proxy](./projects/openai-to-anthropic-proxy/) | WorkBuddy ↔ MiniMax Coding Plan 协议转换代理（OpenAI↔Anthropic 双向转换，零依赖） | MIT | v1.1.2 |
+| [openai-to-anthropic-proxy](./projects/openai-to-anthropic-proxy/) | WorkBuddy ↔ MiniMax Coding Plan 协议转换代理（OpenAI↔Anthropic 双向转换，零依赖） | MIT | v1.1.3 |
 
 > 完整指针索引见 [SQ-INDEX.md](./SQ-INDEX.md)。
 

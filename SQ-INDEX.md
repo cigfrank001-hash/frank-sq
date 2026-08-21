@@ -4,7 +4,7 @@
 
 | 子项目 | 目录 | 来源 | 协议 | 状态 | 跟进日志 |
 |--------|------|------|------|------|----------|
-| openai-to-anthropic-proxy | `projects/openai-to-anthropic-proxy/` | 脱敏导出 | MIT | 🟢 v1.1.2 | `PROJECT-LOG.md` |
+| openai-to-anthropic-proxy | `projects/openai-to-anthropic-proxy/` | 脱敏导出 | MIT | 🟢 v1.1.3 | `PROJECT-LOG.md` |
 
 ## 入仓规则
 

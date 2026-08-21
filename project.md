@@ -16,6 +16,7 @@
 
 | 日期 | 操作 | 结果 |
 |------|------|------|
+| 2026-08-21 | 子项目 openai-to-anthropic-proxy 同步 v1.1.3：start.bat 重构（中文输出委托 PowerShell）+ 版本号 1.1.3 | ✅ |
 | 2026-08-20 | 首个子项目开源发布 — `openai-to-anthropic-proxy`（WorkBuddy↔MiniMax 协议转换代理 v1.1.2），MIT 协议 | ✅ |
 | 2026-08-20 | 初始化仓库骨架（README / LICENSE(MIT) / .gitignore / CLAUDE.md / SQ-INDEX.md + projects/_template 样板） | ✅ |
 
