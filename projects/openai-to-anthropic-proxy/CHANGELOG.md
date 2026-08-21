@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.3] - 2026-08-21
 
+### Fixed
+- **`start.bat` Chinese-output parser bug on Windows cmd**: when the proxy exited, `start.bat` tried to echo the exit-code reference table using `echo` lines with Chinese parentheses like `echo   0   = node 进程主动退出（process.exit(0)，被代码调用）`. Under cmd's GBK decoder, the UTF-8 byte sequence for characters like `码）` contains `)` (0x29), which cmd mis-parses as a subcommand terminator, producing errors like `'码调用）' is not recognized as an internal or external command`. Fixed by routing every multi-line Chinese echo block through `powershell -NoProfile -Command` so PowerShell (UTF-8 native) emits the lines; cmd only handles ASCII banners.
+- **CWD not set when launching via `cmd /c start.bat`**: when the user ran the launcher from outside the project directory (or via a shortcut), `node proxy.js` failed with `Cannot find module 'D:\Qoder\proxy.js'`. Fixed by adding `cd /d "%~dp0"` as the first action after `@echo off` so the working directory is always the script's own folder.
+
 ### Changed
-- **`start.bat` rewritten to delegate all Chinese output to PowerShell**: cmd.exe's parser can mis-tokenize Chinese text containing brackets/parentheses (e.g. `（`, `）`, `：`), producing garbled or truncated console output. The launcher now prints ASCII-only text from cmd itself and routes every Chinese message (port-conflict hint, exit-code reference, debug guidance) through `powershell -NoProfile -Command`, so `cmd /c start.bat` renders correctly regardless of the active code page.
-- Added `cd /d "%~dp0"` at the top so `proxy.js` resolves correctly even when the launcher is invoked from a different working directory.
+- `start.bat` exit-code reference table and port-occupied banner are now English-only ASCII to stay robust under any cmd codepage; all Chinese commentary was moved out of the launcher.
 
 ## [1.1.2] - 2026-08-18
 

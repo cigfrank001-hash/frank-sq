@@ -62,7 +62,7 @@ WorkBuddy ──OpenAI──> 127.0.0.1:18000/v1 ──> [proxy.js] ──Anthro
 ### 方式 B：命令行
 
 ```bash
-cd openai-to-anthropic-proxy
+cd d:\Qoder\2qoder\openai-to-anthropic-proxy
 
 set MINIMAX_API_KEY=sk-cp-你的真实Key
 node proxy.js --port 18000 --log info
@@ -162,7 +162,7 @@ curl -X POST http://127.0.0.1:18000/v1/chat/completions ^
 项目内置 mock 上游 + 集成测试脚本，无需真实 Key 即可验证代理全部路径：
 
 ```bash
-cd openai-to-anthropic-proxy
+cd d:\Qoder\2qoder\openai-to-anthropic-proxy
 node test-integration.js
 ```
 
@@ -262,7 +262,7 @@ node proxy.js --port 18001
 openai-to-anthropic-proxy/
 ├── proxy.js             # 主程序（约 700 行，单文件，零外部依赖）
 ├── mock-anthropic.js    # 测试用模拟上游（~200 行）
-├── test-integration.js  # 集成测试脚本（63 个断言）
+├── test-integration.js  # 集成测试脚本（39 个断言）
 ├── package.json         # Node 工程描述
 ├── start.bat            # Windows 一键启动
 └── README.md            # 本文档
@@ -279,6 +279,43 @@ openai-to-anthropic-proxy/
 - `MINIMAX_API_KEY` 仅保存在本机内存与 `start.bat` 文件中，不会上传到任何地方。
 - 用完代理后关闭 `start.bat` 窗口即可，进程退出时 Key 即从内存消失。
 - **不要把 `start.bat` 截图发到群里**，里面会显示明文 Key（虽已做了 `~0,12` 截断展示，但文件本身是完整 Key）。
+
+---
+
+## 十、双仓结构与发布流程
+
+本仓库是**脱敏后的公开版本**（真源的发布副本）。开发在私有真源上进行，发布时导出脱敏副本合入本仓。
+
+### 双仓定位
+
+| 仓 | 定位 | Key 状态 |
+|---|---|---|
+| 私有真源仓（本地，不 push） | 日常开发 / 运行 / 测试 | 真实 Key 只放这里 |
+| 公开脱敏仓（本仓库） | GitHub 发布、社区可见 | 只有占位符 `sk-cp-REPLACE_ME_WITH_YOUR_MINIMAX_KEY` |
+
+### 发布流程（每次真源改动后）
+
+```bash
+# 1. 在真源改完代码并本地验证（npm test 63/63）
+# 2. 导出脱敏副本（真源 → 本仓）
+# 3. 逐项过脱敏清单（见下）
+# 4. 合入本仓并 push
+```
+
+### 脱敏清单（逐项过，违反即拒）
+
+- [ ] 无 `*.pem` / `id_ed25519*` / `*.key` / 真实 `.env`
+- [ ] 无密码、token、API key 明文（`MINIMAX_API_KEY` 必须是 `sk-cp-REPLACE_ME...` 占位符）
+- [ ] 无内网 IP / 内部域名 / 内部服务器绝对路径
+- [ ] 无真实数据库连接串 / 账号
+- [ ] 日志、临时文件、构建产物、截图已清除
+- [ ] `start.bat.example` 只保留占位符（真源里的 `start.bat` 不导出）
+- [ ] `DEPLOY-FOR-AGENT.md` 绝不进公开仓
+
+### 铁律
+
+1. 真实 MiniMax Key 只存在于私有真源仓，绝不 push 到任何公开/共享仓
+2. 每次 push 公开仓前，先 grep 真实 Key 片段（`sk-cp-` 开头那串）确认零命中，再 push
 
 ---
 
