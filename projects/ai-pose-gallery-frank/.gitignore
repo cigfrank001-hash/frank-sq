@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 工具产物
+*.part
+download_failed.txt
+verify_failed.txt
+
+# 本地/编辑器
+.idea/
+.vscode/
+node_modules/
+.wrangler/
+
+# 构建产物
+dist/
+
+# 本副本增补：上游图片不入库（非 MIT 素材，见 NOTICE.md）
+# 需要图片时跑 python3 scripts/download.py，产物落在这里，不进 git
+img/
+thumbs/

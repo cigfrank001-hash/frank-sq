@@ -8,6 +8,7 @@
 | 子项目 | 说明 | 协议 | 状态 |
 |--------|------|------|------|
 | [openai-to-anthropic-proxy](./projects/openai-to-anthropic-proxy/) | WorkBuddy ↔ MiniMax Coding Plan 协议转换代理（OpenAI↔Anthropic 双向转换，零依赖） | MIT | v1.1.3 |
+| [ai-pose-gallery-frank](./projects/ai-pose-gallery-frank/) | 中文版 AI 姿势参考图库的**代码 + 中文数据镜像**（上游 `anhao/ai-pose-gallery-zh`）；图片不入库，本地一条脚本自取 | MIT（仅代码，图片与原始数据非 MIT） | v0.1.0 |
 
 > 完整指针索引见 [SQ-INDEX.md](./SQ-INDEX.md)。
 
